@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .app {
     position: absolute;
     top: 50%;
@@ -9,8 +13,6 @@
     padding: 40px 20px;
     width: 600px;
 }
-
-
 
 .display {
     font-size: 120px;
@@ -24,4 +26,25 @@
     grid-gap: 15px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    justify-items: center
+}
+
+@media (max-width: 600px) {
+    .app {
+        overflow-x: hidden;
+        left: 0;
+        transform: translate(0, -50%);
+        /* background-color: red; */
+        width: 100%;
+        padding: 40px 20px;
+        margin: auto auto;
+    }
+
+    .buttons {
+        grid-gap: 10px;
+    }
+
+    .display {
+        font-size: 40px;
+    }
 }

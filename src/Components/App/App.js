@@ -110,10 +110,9 @@ const App = () => {
       int = val;
     }
     // console.log(dec);
-    let output;
+
     if (int.length > 9) return parseFloat(val).toPrecision(3).toString();
     else if (val.length > 8 && dec.length > 0) {
-      console.log(int, dec, parseFloat(val).toFixed(8 - int.length));
       return parseFloat(val)
         .toFixed(8 - int.length)
         .toString();
@@ -121,7 +120,7 @@ const App = () => {
     if (dec.length > 0) return `${int}.${dec}`;
     else return int + dec;
 
-    return "Error";
+    // return "Error";
   };
   return (
     <div className="app">
