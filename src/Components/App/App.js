@@ -8,9 +8,10 @@ const App = () => {
   }
   return (
     <div className="app">
-      <div className="display"></div>
+      <div className="display">0</div>
       <div className="buttons">
-      <Button         
+      <Button     
+          handleButtonClick={handleButtonClick }    
           content="AC"
           type="function"
         />
