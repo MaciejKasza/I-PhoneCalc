@@ -90,15 +90,42 @@ const App = () => {
       default:
     }
 
+    if (value.length > 9) return value;
+
     if (value[value.length - 1] === ".") {
       setValue(value + content);
     } else {
       setValue(parseFloat(number + content).toString());
     }
   };
+
+  const checkOutputValue = (val) => {
+    if (val === "0") return val;
+    let int = "";
+    let dec = "";
+    if (val.includes(".")) {
+      int = val.substring(0, val.indexOf("."));
+      dec = val.substring(val.indexOf(".") + 1);
+    } else {
+      int = val;
+    }
+    // console.log(dec);
+    let output;
+    if (int.length > 9) return parseFloat(val).toPrecision(3).toString();
+    else if (val.length > 8 && dec.length > 0) {
+      console.log(int, dec, parseFloat(val).toFixed(8 - int.length));
+      return parseFloat(val)
+        .toFixed(8 - int.length)
+        .toString();
+    }
+    if (dec.length > 0) return `${int}.${dec}`;
+    else return int + dec;
+
+    return "Error";
+  };
   return (
     <div className="app">
-      <div className="display">{value}</div>
+      <div className="display">{checkOutputValue(value)}</div>
       <div className="buttons">
         <Button
           handleButtonClick={handleButtonClick}
